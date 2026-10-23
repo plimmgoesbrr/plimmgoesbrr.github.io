@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ChainSight</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="An offline, explainable Bitcoin forensics engine that scores wallet risk and explains every flag in plain English.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Sora:wght@300;400;500&family=Martian+Mono:wght@300;400&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="haze" aria-hidden="true"></canvas>
+<div class="wrap" class="page">
+  <nav class="top" aria-label="Main">
+    <a class="back" href="index.html#projects">&larr; back to projects</a>
+    <div class="links">
+      <a href="index.html" class="mark">plimm<span>.</span></a>
+      <button id="theme" type="button" aria-label="Switch to light mode">
+        <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6"/></svg>
+        <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>
+      </button>
+    </div>
+  </nav>
+<header class="page-head">
+    <p class="label">// project · bitcoin forensics</p>
+    <h1>ChainSight</h1>
+    <p class="lede">Every Bitcoin transaction is public. Spotting the shady ones is the hard part. ChainSight follows the money, scores every wallet from 0 to 100, and explains why in plain English.</p>
+  </header>
+
+  <main>
+    <section>
+      <p class="label">// the 10-second version</p>
+      <div class="kid"><p>Bitcoin is a giant notebook anyone can read, where people sign with secret nicknames. ChainSight is a detective that reads the whole notebook, works out which nicknames belong to the same person, and points out who's moving money in sneaky ways.</p></div>
+    </section>
+
+    <section class="prose">
+      <p class="label">// why it's cool</p>
+      <h2>A score you can actually check</h2>
+      <p>Launderers split, shuffle and hop money through many wallets until the trail goes cold. Investigators can see every step, but there are far too many to read by hand.</p>
+      <p>Plenty of tools say "this wallet looks risky". ChainSight also says <em>why</em>, runs fully offline, and traces every number back to the data. You can't take "the AI said so" to court.</p>
+    </section>
+
+    <section>
+      <p class="label">// how it works</p>
+      <h2>Raw data in, explained risk out</h2>
+      <ol class="pipe">
+        <li><div><b>Read the data</b><span>Load transaction and network logs (CSV, JSON or XML) and add rough locations.</span></div></li>
+        <li><div><b>Connect the dots</b><span>Use timing to link computers to the transactions they sent, then group wallets that likely share an owner.</span></div></li>
+        <li><div><b>Measure behaviour</b><span>19 features per wallet: how fast money moves, how many hops, who it deals with.</span></div></li>
+        <li><div><b>Score</b><span>Four detectors each give an opinion, blended into one 0&ndash;100 risk score.</span></div></li>
+        <li><div><b>Explain and show</b><span>Turn the maths into plain sentences and display it all on an interactive money-flow dashboard.</span></div></li>
+      </ol>
+    </section>
+
+    <section class="prose">
+      <p class="label">// under the hood</p>
+      <h2>Four detectives</h2>
+      <ul class="dots">
+        <li><span class="term">XGBoost</span>: "Does this look like laundering I've seen before?"</li>
+        <li><span class="term">Isolation Forest</span>: "Is this wallet just weird compared to everyone else?" This catches new tricks.</li>
+        <li><span class="term">Personalised PageRank</span>: Google's page-ranking idea, aimed at money. "How close is this wallet to known bad money?"</li>
+        <li><b>Pattern rules</b> for classic laundering shapes: peeling chains (shaving a little off at each hop), fan-out and fan-in (splitting money up, then gathering it back), and mixing.</li>
+      </ul>
+      <p><b>Grouping wallets:</b> wallets spent together in one transaction usually share an owner, so they're merged with a fast <span class="term">Union-Find</span> structure. <span class="term">CoinJoin</span> transactions, where strangers deliberately pool coins, are filtered out first so unrelated people aren't merged.</p>
+      <p><b>Explaining:</b> <span class="term">TreeSHAP</span> measures what pushed each score up or down, which becomes sentences like <em>"90/100 HIGH: 2 hops from a flagged wallet; part of a 9-hop peeling chain; funds moved on within minutes."</em></p>
+    </section>
+
+    <section>
+      <p class="label">// results</p>
+      <h2>On a held-out test set</h2>
+      <div class="stats">
+        <div class="stat"><div class="n">30 / 30</div><div class="t">laundering cases caught</div></div>
+        <div class="stat"><div class="n">100%</div><div class="t">of the top 50 alerts were truly illicit</div></div>
+        <div class="stat"><div class="n">0.5%</div><div class="t">false-alarm rate</div></div>
+        <div class="stat"><div class="n">~7 s</div><div class="t">for a full run on a laptop</div></div>
+      </div>
+      <p class="note">PR-AUC of 0.98 (1.0 is perfect). Evaluated on synthetic data the models never trained on; real labelled data is the next test.</p>
+    </section>
+
+    <section class="prose">
+      <p class="label">// the tricky part</p>
+      <h2>Catching what nobody has labelled</h2>
+      <p>A model trained on known laundering misses new tricks; a "weirdness" detector flags innocent oddballs. Blending four different approaches lets each cover the others' blind spots, and linking every score back to real transactions makes it trustworthy.</p>
+      <ul class="tags"><li>python</li><li>xgboost</li><li>scikit-learn</li><li>networkx</li><li>duckdb</li><li>fastapi</li><li>cytoscape.js</li></ul>
+    </section>
+  </main>
+
+  <nav class="nextpage" aria-label="More projects">
+    <a href="project-lunar.html">&larr; Lunar Shadow Imaging</a>
+    <a href="project-flowkeep.html">next: FlowKeep &rarr;</a>
+  </nav>
+
+  <footer>
+    <span>built on earth, dreams in orbit</span>
+    <span>&copy; 2026 Karthik</span>
+  </footer>
+</div>
+<script src="site.js"></script>
+</body>
+</html>

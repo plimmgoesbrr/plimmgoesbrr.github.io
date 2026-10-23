@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Universe's Source Code</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Why maths describes the universe so well, Euler's identity explained simply, and links worth your time.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Sora:wght@300;400;500&family=Martian+Mono:wght@300;400&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="haze" aria-hidden="true"></canvas>
+<div class="wrap" class="page">
+  <nav class="top" aria-label="Main">
+    <a class="back" href="index.html#orbit">&larr; back to orbit</a>
+    <div class="links">
+      <a href="index.html" class="mark">plimm<span>.</span></a>
+      <button id="theme" type="button" aria-label="Switch to light mode">
+        <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6"/></svg>
+        <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>
+      </button>
+    </div>
+  </nav>
+<header class="page-head">
+    <p class="label">// orbit · math &amp; physics</p>
+    <h1>The universe's source code</h1>
+    <p class="lede">Physics asks how the universe behaves. Maths, for reasons nobody fully understands, turns out to be the language it answers in. Equations scribbled on paper predict where planets will be in a thousand years. That should be impossible, and it isn't.</p>
+  </header>
+
+  <main>
+    <section class="prose">
+      <p class="label">// the mystery</p>
+      <h2>Unreasonably effective</h2>
+      <p>In 1960 the physicist Eugene Wigner wrote an essay called <em>The Unreasonable Effectiveness of Mathematics in the Natural Sciences</em>. His point: mathematicians often invent ideas purely because they're beautiful, and decades later physicists discover that the universe runs on exactly those ideas.</p>
+      <ul class="dots">
+        <li><b>Imaginary numbers</b> started as a "useless" trick for solving equations. Now quantum mechanics can't be written without them.</li>
+        <li><b>Curved geometry</b> was a 19th-century curiosity. Then Einstein needed it to describe gravity as bent spacetime.</li>
+        <li><b>Maxwell's four equations</b> describe electricity and magnetism. Solve them, and out pops a wave moving at exactly the speed of light. Light, it turned out, <em>is</em> electricity and magnetism.</li>
+      </ul>
+    </section>
+
+    <section class="prose">
+      <p class="label">// the most beautiful equation</p>
+      <h2>e<sup>i&pi;</sup> + 1 = 0</h2>
+      <p>Euler's identity links five of the most important numbers in maths, each from a completely different corner:</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>number</th><th>where it comes from</th></tr></thead>
+          <tbody>
+            <tr><td class="num">0</td><td>nothing; the starting point of counting</td></tr>
+            <tr><td class="num">1</td><td>one; the building block of every other number</td></tr>
+            <tr><td class="num">&pi; &asymp; 3.14159</td><td>circles: how many diameters fit around the edge</td></tr>
+            <tr><td class="num">e &asymp; 2.71828</td><td>growth: compound interest, populations, radioactive decay</td></tr>
+            <tr><td class="num">i = &radic;&minus;1</td><td>the imaginary number nobody believed in at first</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><b>The simple version:</b> multiplying by <span class="term">i</span> means "turn 90&deg;". Raising <span class="term">e</span> to an imaginary power means "walk around a circle". So <span class="term">e<sup>i&pi;</sup></span> means "walk halfway around a circle of radius 1", which lands you exactly at &minus;1. Add 1, and you get 0.</p>
+      <p>Circles, growth and rotation, all secretly the same idea. That's what I mean by poetry.</p>
+    </section>
+
+
+    <section>
+      <p class="label">// go deeper</p>
+      <h2>Links worth your time</h2>
+      <div class="linkrow">
+        <a href="https://www.feynmanlectures.caltech.edu/" target="_blank" rel="noopener">
+          <span>The Feynman Lectures on Physics<small>Richard Feynman's legendary course, free to read online from Caltech</small></span>
+          <span class="go">open &#8599;</span>
+        </a>
+        <a href="https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab" target="_blank" rel="noopener">
+          <span>Essence of Linear Algebra &middot; 3Blue1Brown<small>the most beautiful visual intro to vectors and matrices there is</small></span>
+          <span class="go">open &#8599;</span>
+        </a>
+        <a href="https://immersivemath.com/ila/index.html" target="_blank" rel="noopener">
+          <span>Immersive Linear Algebra<small>an interactive textbook where the figures move with you</small></span>
+          <span class="go">open &#8599;</span>
+        </a>
+        <a href="https://www.youtube.com/playlist?list=PLW3u28VuDAHJymExTBCNnaI6TymzRGsUV" target="_blank" rel="noopener">
+          <span>Differential and Integral Calculus 1 &middot; Technion<small>a full university calculus course, 52 lectures</small></span>
+          <span class="go">open &#8599;</span>
+        </a>
+        <a href="https://rentry.org/machine-learning-roadmap" target="_blank" rel="noopener">
+          <span>Machine Learning Roadmap<small>a structured path from the maths foundations into ML</small></span>
+          <span class="go">open &#8599;</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <nav class="nextpage" aria-label="More">
+    <a href="orbit-chess.html">&larr; Chess</a>
+    <a href="index.html#orbit">all topics &rarr;</a>
+  </nav>
+
+  <footer>
+    <span>built on earth, dreams in orbit</span>
+    <span>&copy; 2026 Karthik</span>
+  </footer>
+</div>
+<script src="site.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Spotify Taste Lab</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="A side idea in progress: turning your listening history into a map of your music taste.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Sora:wght@300;400;500&family=Martian+Mono:wght@300;400&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="haze" aria-hidden="true"></canvas>
+<div class="wrap" class="page">
+  <nav class="top" aria-label="Main">
+    <a class="back" href="index.html#projects">&larr; back to projects</a>
+    <div class="links">
+      <a href="index.html" class="mark">plimm<span>.</span></a>
+      <button id="theme" type="button" aria-label="Switch to light mode">
+        <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6"/></svg>
+        <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>
+      </button>
+    </div>
+  </nav>
+<header class="page-head">
+    <p class="label">// side idea · in progress</p>
+    <h1>Spotify Taste Lab</h1>
+    <p class="lede">What does your music taste look like as a map? A side idea I've been itching to build: turning your listening history into something you can explore.</p>
+  </header>
+
+  <main>
+    <section>
+      <p class="label">// the 10-second version</p>
+      <div class="kid"><p>Your playlists are secretly a map of you. Taste Lab would draw that map, find the friend whose map looks most like yours, and point you to music you'd probably love but haven't found yet.</p></div>
+    </section>
+
+    <section class="prose">
+      <p class="label">// the plan</p>
+      <h2>What it would do</h2>
+      <ul class="dots">
+        <li><b>Taste map:</b> see which moods and genres you actually live in, not the ones you think you do.</li>
+        <li><b>Music twin:</b> compare with friends to find whose taste overlaps yours most.</li>
+        <li><b>Taste drift:</b> watch how your listening changes month to month.</li>
+        <li><b>Edge picks:</b> songs just outside your comfort zone: close enough to like, far enough to surprise you.</li>
+      </ul>
+    </section>
+
+    <section>
+      <p class="label">// how it would work</p>
+      <h2>The pipeline I have in mind</h2>
+      <ol class="pipe">
+        <li><div><b>Connect</b><span>Log in with Spotify to read your top artists, top tracks and recent plays.</span></div></li>
+        <li><div><b>Describe</b><span>Turn each artist into numbers from genres, popularity and listening patterns.</span></div></li>
+        <li><div><b>Map</b><span>Squash those numbers onto a 2D map where similar music sits close together.</span></div></li>
+        <li><div><b>Compare and recommend</b><span>Measure overlap between people, and look for great music just past the edge of your map.</span></div></li>
+      </ol>
+    </section>
+
+    <section class="prose">
+      <p class="label">// the tricky part</p>
+      <h2>Describing a song without hearing it</h2>
+      <p>Spotify has restricted some of its audio-analysis data for new apps, so ready-made "energy" or "danceability" numbers are off the table. The challenge is building a good picture of taste from what's left: genres, artist connections and listening habits.</p>
+      <p class="note">Still on the drawing board. Ideas, or want to be an early music-twin test subject? Say hi.</p>
+      <ul class="tags"><li>spotify web api</li><li>data viz</li><li>recommendations</li></ul>
+    </section>
+  </main>
+
+  <nav class="nextpage" aria-label="More projects">
+    <a href="project-health.html">&larr; System Health Monitor</a>
+    <a href="index.html#orbit">things I think about &rarr;</a>
+  </nav>
+
+  <footer>
+    <span>built on earth, dreams in orbit</span>
+    <span>&copy; 2026 Karthik</span>
+  </footer>
+</div>
+<script src="site.js"></script>
+</body>
+</html>

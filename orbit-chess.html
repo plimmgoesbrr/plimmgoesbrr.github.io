@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>64 Squares</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Chess as art and science: the Shannon number, the Immortal Game, and how engines and AlphaZero think.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Sora:wght@300;400;500&family=Martian+Mono:wght@300;400&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="haze" aria-hidden="true"></canvas>
+<div class="wrap" class="page">
+  <nav class="top" aria-label="Main">
+    <a class="back" href="index.html#orbit">&larr; back to orbit</a>
+    <div class="links">
+      <a href="index.html" class="mark">plimm<span>.</span></a>
+      <button id="theme" type="button" aria-label="Switch to light mode">
+        <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6"/></svg>
+        <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>
+      </button>
+    </div>
+  </nav>
+<header class="page-head">
+    <p class="label">// orbit · chess</p>
+    <h1>64 squares, infinite stories</h1>
+    <p class="lede">Chess is a war with no blood, a puzzle that fights back, and an art form where the canvas never changes. Thirty-two pieces, sixty-four squares, and more possible games than there are atoms in the universe.</p>
+  </header>
+
+  <main>
+    <section class="prose">
+      <p class="label">// how big is chess</p>
+      <h2>The Shannon number</h2>
+      <div class="stats">
+        <div class="stat"><div class="n">10<sup>120</sup></div><div class="t">rough number of possible chess games (Claude Shannon's 1950 estimate)</div></div>
+        <div class="stat"><div class="n">10<sup>80</sup></div><div class="t">rough number of atoms in the observable universe</div></div>
+        <div class="stat"><div class="n">400</div><div class="t">possible positions after just one move each</div></div>
+      </div>
+      <p>After both players move once, there are 400 possible positions. After two moves each, about 72,000. After three, over 9 million. By the time you're a few moves into the middlegame, you are very likely playing a game that has never existed before in human history.</p>
+    </section>
+
+    <section>
+      <p class="label">// chess as art</p>
+      <h2>The Immortal Game</h2>
+      <div class="prose">
+        <p>London, 1851. Adolf Anderssen, playing white, gives away a bishop, then both rooks, then his queen, everything an ordinary player would protect. Then, with almost nothing left on the board, he checkmates with three small pieces. This is the final position:</p>
+      </div>
+      <div class="board" id="board" role="img" aria-label="Final position of the Immortal Game: white's bishop on e7 checkmates the black king on d8, supported by knights on d5 and g7"></div>
+      <div class="prose">
+        <p class="note">23. Be7#. The bishop checks Black's king on d8, and the two knights cover every escape square. Meanwhile Black still has a queen, two rooks and two bishops sitting uselessly on the board. Material is a number. Checkmate is a story.</p>
+      </div>
+    </section>
+
+    <section class="prose">
+      <p class="label">// chess as science</p>
+      <h2>How machines think</h2>
+      <p>A chess engine imagines the future as a giant tree: every move it could make, every reply, every reply to that. Then it uses an idea called <span class="term">minimax</span>: assume the opponent always plays their best move, and pick the move whose worst case is best.</p>
+      <p>The tree is far too big to search fully, so engines use <span class="term">alpha-beta pruning</span>. The moment a line is clearly worse than one already found, it stops exploring it.</p>
+      <ol class="timeline">
+        <li><span class="yr">1997</span>IBM's Deep Blue beats world champion Garry Kasparov, searching around 200 million positions a second.</li>
+        <li><span class="yr">2017</span>DeepMind's AlphaZero learns chess from nothing but the rules, playing millions of games against itself. Within hours it's beating Stockfish, the top engine of the time, with a style people described as almost human: sacrificing pieces for long-term pressure.</li>
+        <li><span class="yr">today</span>Engines are far stronger than any human. And yet people play chess more than ever, because the point was never just to win. It's how you win.</li>
+      </ol>
+    </section>
+
+    <section class="prose">
+      <p class="label">// over the board</p>
+      <h2>Why I play</h2>
+      <p>Chess is the purest thinking game I know. No luck, no hidden cards, just you, your opponent, and whoever sees one move deeper. It trains the same muscles as building things: patience, planning, and knowing when to throw the plan away.</p>
+    </section>
+
+    <section>
+      <p class="label">// challenge accepted</p>
+      <h2>Fancy a game?</h2>
+      <div class="linkrow">
+        <a href="https://www.chess.com/member/bootstrapp_1" target="_blank" rel="noopener">
+          <span>Play me on chess.com<small>bootstrapp_1 &middot; send a challenge, I usually accept</small></span>
+          <span class="go">open &#8599;</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <nav class="nextpage" aria-label="More">
+    <a href="orbit-music.html">&larr; Music</a>
+    <a href="orbit-math.html">next: Math &amp; physics &rarr;</a>
+  </nav>
+
+<script>
+(function () {
+  // Final position of Anderssen–Kieseritzky, 1851, after 23.Be7#
+  var fen = 'r1bk3r/p2pBpNp/n4n2/1p1NP2P/6P1/3P4/P1P1K3/q5b1';
+  var map = { K: '♔', Q: '♕', R: '♖', B: '♗', N: '♘', P: '♙', k: '♚', q: '♛', r: '♜', b: '♝', n: '♞', p: '♟' };
+  var el = document.getElementById('board'), html = '';
+  fen.split('/').forEach(function (row, r) {
+    var c = 0;
+    row.split('').forEach(function (ch) {
+      if (/\d/.test(ch)) { for (var k = 0; k < +ch; k++) { html += '<div class="' + ((r + c) % 2 ? 'd' : 'l') + '"></div>'; c++; } }
+      else { html += '<div class="' + ((r + c) % 2 ? 'd' : 'l') + '">' + map[ch] + '</div>'; c++; }
+    });
+  });
+  el.innerHTML = html;
+})();
+</script>
+
+  <footer>
+    <span>built on earth, dreams in orbit</span>
+    <span>&copy; 2026 Karthik</span>
+  </footer>
+</div>
+<script src="site.js"></script>
+</body>
+</html>

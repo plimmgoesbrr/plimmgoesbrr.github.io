@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Spin Doctors</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="The physics of spin in tennis, how Hawk-Eye calls lines with cameras, and why Rafa and Alcaraz are magic.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Sora:wght@300;400;500&family=Martian+Mono:wght@300;400&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="haze" aria-hidden="true"></canvas>
+<div class="wrap" class="page">
+  <nav class="top" aria-label="Main">
+    <a class="back" href="index.html#orbit">&larr; back to orbit</a>
+    <div class="links">
+      <a href="index.html" class="mark">plimm<span>.</span></a>
+      <button id="theme" type="button" aria-label="Switch to light mode">
+        <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6"/></svg>
+        <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>
+      </button>
+    </div>
+  </nav>
+<header class="page-head">
+    <p class="label">// orbit · tennis &amp; sports</p>
+    <h1>Spin doctors</h1>
+    <p class="lede">Sport looks like strength and speed. Look closer and it's physics: spinning balls bending through the air, and cameras that know where a ball landed better than any human eye.</p>
+  </header>
+
+  <main>
+    <section class="prose">
+      <p class="label">// the magnus effect</p>
+      <h2>Why a spinning ball bends</h2>
+      <p>A spinning ball drags a thin layer of air around with it. On one side, the ball's surface moves along with the air rushing past; on the other, it moves against it. That makes the pressure uneven, so the ball gets pushed toward the side moving along with the air. That push is the <span class="term">Magnus effect</span>.</p>
+      <ul class="dots">
+        <li><b>Topspin</b> (top of the ball rolling forward) pushes the ball <em>down</em>. You can hit it hard and high over the net, and it still dives into the court.</li>
+        <li><b>Backspin</b> (slice) pushes it <em>up</em>, so it floats, stays low and skids off the bounce.</li>
+        <li><b>Sidespin</b> curves it left or right, which is how a serve swings away from a returner.</li>
+      </ul>
+      <div class="stats">
+        <div class="stat"><div class="n">3,000+ rpm</div><div class="t">on a heavy topspin forehand, with peaks near 5,000</div></div>
+        <div class="stat"><div class="n">230+ km/h</div><div class="t">on the biggest first serves</div></div>
+      </div>
+    </section>
+
+    <section class="prose">
+      <p class="label">// the goats</p>
+      <h2>Rafa then, Alcaraz now</h2>
+      <div class="split">
+        <div>
+          <h3>Rafael Nadal</h3>
+          <p>The king of topspin. His forehand spun so hard it kicked up above opponents' shoulders, and it carried him to 14 French Open titles, a record that may never be broken. Pure grit with a whip-like swing.</p>
+        </div>
+        <div>
+          <h3>Carlos Alcaraz</h3>
+          <p>World No. 1 at 19, the youngest ever. He can crush a forehand from the baseline and then, one point later, float a drop shot that dies on the other side of the net. Power and touch in the same player.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="prose">
+      <p class="label">// computer vision on court</p>
+      <h2>How Hawk-Eye calls a line</h2>
+      <p>This is where tennis meets the stuff I build. <span class="term">Hawk-Eye</span> uses around ten high-speed cameras placed around the court:</p>
+      <ol class="pipe">
+        <li><div><b>Spot the ball</b><span>Each camera finds the ball in every frame, hundreds of times a second.</span></div></li>
+        <li><div><b>Triangulate</b><span>Two cameras seeing the same ball from different angles pin down where it is in 3D, the same way your two eyes judge distance.</span></div></li>
+        <li><div><b>Fit the flight</b><span>The 3D points are joined into a smooth path, accounting for gravity, drag and spin.</span></div></li>
+        <li><div><b>Find the bounce</b><span>Where the path meets the ground, including how the ball squashes on impact, decides in or out to within a few millimetres.</span></div></li>
+      </ol>
+    </section>
+
+  </main>
+
+  <nav class="nextpage" aria-label="More">
+    <a href="orbit-f1.html">&larr; Formula 1</a>
+    <a href="orbit-questions.html">next: Big questions &rarr;</a>
+  </nav>
+
+  <footer>
+    <span>built on earth, dreams in orbit</span>
+    <span>&copy; 2026 Karthik</span>
+  </footer>
+</div>
+<script src="site.js"></script>
+</body>
+</html>

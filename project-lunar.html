@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lunar Shadow Imaging</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Seeing inside lunar craters that sunlight has never reached, with a U-Net trained on physics-simulated data.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Sora:wght@300;400;500&family=Martian+Mono:wght@300;400&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="haze" aria-hidden="true"></canvas>
+<div class="wrap" class="page">
+  <nav class="top" aria-label="Main">
+    <a class="back" href="index.html#projects">&larr; back to projects</a>
+    <div class="links">
+      <a href="index.html" class="mark">plimm<span>.</span></a>
+      <button id="theme" type="button" aria-label="Switch to light mode">
+        <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6"/></svg>
+        <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>
+      </button>
+    </div>
+  </nav>
+<header class="page-head">
+    <p class="label">// project · computer vision</p>
+    <h1>Lunar Shadow Imaging</h1>
+    <p class="lede">Some craters near the Moon's poles haven't seen sunlight in billions of years. This project teaches a neural network to see inside them anyway.</p>
+  </header>
+
+  <main>
+    <section>
+      <p class="label">// the 10-second version</p>
+      <div class="kid"><p>Take a photo in a pitch-black room and you get grainy speckles. I built an AI that looks at that kind of grainy mess from a Moon crater and works out what the crater really looks like.</p></div>
+    </section>
+
+    <section class="prose">
+      <p class="label">// why it's cool</p>
+      <h2>The darkest places matter most</h2>
+      <p>These craters are called <span class="term">permanently shadowed regions</span> (PSRs). They stay around &minus;200&nbsp;&deg;C, cold enough to trap water ice, which future missions could turn into drinking water, oxygen and rocket fuel.</p>
+      <p>Orbiters like Chandrayaan-2 can catch the faint light bouncing in off nearby crater walls, but it's so weak that the photos come out as mostly noise.</p>
+    </section>
+
+    <section>
+      <p class="label">// how it works</p>
+      <h2>Five stages</h2>
+      <ol class="pipe">
+        <li><div><b>Draw fake craters</b><span>Generate realistic sunlit crater scenes from scratch: the "answer key".</span></div></li>
+        <li><div><b>Make them dark</b><span>Darken each one the way a real camera would in near-total darkness, noise and all.</span></div></li>
+        <li><div><b>Pair them up</b><span>Dark version in, bright version out, thousands of times.</span></div></li>
+        <li><div><b>Train a U-Net</b><span>The network learns to undo the darkness while keeping real detail.</span></div></li>
+        <li><div><b>Test fairly</b><span>Score it on craters it has never seen.</span></div></li>
+      </ol>
+    </section>
+
+    <section class="prose">
+      <p class="label">// under the hood</p>
+      <h2>The key ideas</h2>
+      <p><b>Realistic darkness.</b> The fake dark images copy three real camera problems: light arriving randomly when there's very little of it (<span class="term">shot noise</span>), electronic hiss from the sensor (<span class="term">read noise</span>), and dim detail getting rounded down to zero (<span class="term">quantisation</span>).</p>
+      <p><b>The U-Net.</b> A neural network shaped like a U. One side shrinks the image to understand the big picture; the other rebuilds it at full size. Shortcuts across the middle keep edges sharp. This one has about 1.9 million parameters, small enough to train on a free cloud GPU.</p>
+      <p><b>The scores.</b> <span class="term">PSNR</span> measures how close each pixel is to the truth (higher is better). <span class="term">SSIM</span> measures whether shapes and textures match, from 0 to 1.</p>
+    </section>
+
+    <section>
+      <p class="label">// results</p>
+      <h2>From noise to craters</h2>
+      <div class="stats">
+        <div class="stat"><div class="n">+16.4 dB</div><div class="t">PSNR, from 4.8 dB to 21.2 dB</div></div>
+        <div class="stat"><div class="n">0.06 &rarr; 0.66</div><div class="t">SSIM, from no structure to clearly matching shapes</div></div>
+        <div class="stat"><div class="n">150 steps</div><div class="t">of training on one GPU</div></div>
+      </div>
+      <p class="note">Measured on held-out simulated images. Longer training (2,000 steps) recovers crater rims and individual boulders.</p>
+    </section>
+
+    <section class="prose">
+      <p class="label">// the tricky part</p>
+      <h2>No answer key exists</h2>
+      <p>To teach a network to brighten photos, you normally show it the same scene in good light. A permanently shadowed crater has never been in good light, so that photo doesn't exist anywhere.</p>
+      <p>The fix was to make the training data: bright craters, darkened with real camera physics, so every example comes with a perfect answer. Real Chandrayaan-2 images can be dropped in later without changing the rest of the pipeline.</p>
+      <ul class="tags"><li>python</li><li>pytorch</li><li>opencv</li><li>numpy</li></ul>
+    </section>
+  </main>
+
+  <nav class="nextpage" aria-label="More projects">
+    <a href="index.html#projects">&larr; all projects</a>
+    <a href="project-chainsight.html">next: ChainSight &rarr;</a>
+  </nav>
+
+  <footer>
+    <span>built on earth, dreams in orbit</span>
+    <span>&copy; 2026 Karthik</span>
+  </footer>
+</div>
+<script src="site.js"></script>
+</body>
+</html>

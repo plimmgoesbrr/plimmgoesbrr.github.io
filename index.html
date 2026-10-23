@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Karthik · plimm</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Karthik (plimm). Projects in computer vision and ML, and a few things I can't stop thinking about.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Sora:wght@300;400;500&family=Martian+Mono:wght@300;400&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="haze" aria-hidden="true"></canvas>
+<div class="wrap">
+  <nav class="top" aria-label="Main">
+    <a class="mark" href="#top">plimm<span>.</span></a>
+    <div class="links">
+      <a href="#about" class="hide-sm">about</a>
+      <a href="#projects">projects</a>
+      <a href="#orbit">orbit</a>
+      <a href="#contact">contact</a>
+      <button id="theme" type="button" aria-label="Switch to light mode">
+        <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6"/></svg>
+        <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>
+      </button>
+    </div>
+  </nav>
+<header class="hero" id="top">
+    <div class="moon" aria-hidden="true"></div>
+    <p class="eyebrow">hello, earthling</p>
+    <h1 class="name">Karthik</h1>
+    <p class="aka">or <b>plimm</b></p>
+  </header>
+
+  <main>
+    <section class="about prose" id="about">
+      <p class="label">// about</p>
+      <h2>A little about me</h2>
+      <p>Hi, I'm Karthik.</p>
+      <p>I treat every random idea like a side quest. Some turn into working projects, some turn into 40 open browser tabs, and one turned into a system that looks inside lunar craters the sun has never seen. I mostly build with computer vision and ML, because teaching a machine to see still feels a little like cheating.</p>
+      <p>I came for the code and stayed for the physics. It's almost unfair how well math describes the universe, as if the cosmos left its source code lying around in equation form and we're slowly learning to read it.</p>
+      <p>Away from the keyboard, I'm usually watching things go very fast: rockets, F1 cars, a tennis ball with so much topspin it changes its mind mid-flight. When I slow down, it's for a game of chess I fully intend to win, a violin or piano piece on repeat, or a good paradox that keeps me thinking well past midnight.</p>
+    </section>
+
+    <section id="projects">
+      <p class="label">// things i've built</p>
+      <h2>Projects</h2>
+      <div class="projects">
+        <a class="card" href="project-lunar.html">
+          <span class="arrow" aria-hidden="true">&rarr;</span>
+          <h3>Lunar Shadow Imaging</h3>
+          <p class="kind">computer vision · the Moon</p>
+          <p>Near the Moon's poles there are craters that sunlight has never touched. This system works with images of those permanently shadowed regions and pulls out the detail hiding in the dark, so you can actually see what's down there.</p>
+          <ul class="tags"><li>computer vision</li><li>low-light imaging</li><li>lunar data</li></ul>
+        </a>
+        <a class="card" href="project-chainsight.html">
+          <span class="arrow" aria-hidden="true">&rarr;</span>
+          <h3>ChainSight</h3>
+          <p class="kind">bitcoin · monitoring</p>
+          <p>Keeps watch over Bitcoin transactions and flags anything that looks shady, so suspicious activity stands out from the noise instead of hiding in it.</p>
+          <ul class="tags"><li>blockchain</li><li>transaction monitoring</li></ul>
+        </a>
+        <a class="card" href="project-flowkeep.html">
+          <span class="arrow" aria-hidden="true">&rarr;</span>
+          <h3>FlowKeep</h3>
+          <p class="kind">browser extension · llms</p>
+          <p>Tracks how many tokens I burn talking to Claude, and when one model runs out of patience, hands the conversation off to another so the train of thought keeps going.</p>
+          <ul class="tags"><li>browser extension</li><li>token tracking</li><li>llms</li></ul>
+        </a>
+        <a class="card" href="project-findr.html">
+          <span class="arrow" aria-hidden="true">&rarr;</span>
+          <h3>findr</h3>
+          <p class="kind">bot · internships</p>
+          <p>An internship-hunting bot built around exactly what I care about, so I spend less time scrolling job boards and more time building things.</p>
+          <ul class="tags"><li>automation</li><li>personal tool</li></ul>
+        </a>
+        <a class="card" href="project-health.html">
+          <span class="arrow" aria-hidden="true">&rarr;</span>
+          <h3>System Health Monitor</h3>
+          <p class="kind">terminal · monitoring · group project</p>
+          <p>A live dashboard for your computer's vital signs: CPU, memory, disk and network, right in the terminal. It only raises the alarm when something stays wrong, not every time it blips.</p>
+          <ul class="tags"><li>python</li><li>system monitoring</li></ul>
+        </a>
+        <a class="card" href="project-tastelab.html">
+          <span class="arrow" aria-hidden="true">&rarr;</span>
+          <h3>Spotify Taste Lab <span class="wip">in progress</span></h3>
+          <p class="kind">music · data · side idea</p>
+          <p>A side idea I've been itching to build: turn your listening history into a map of your music taste, find your music twin, and get songs from just outside your comfort zone.</p>
+          <ul class="tags"><li>data viz</li><li>recommendations</li><li>spotify api</li></ul>
+        </a>
+      </div>
+    </section>
+
+    <section id="orbit">
+      <p class="label">// in orbit</p>
+      <h2>Things I think about</h2>
+      <div class="orbit">
+        <a class="orb" href="orbit-sports.html">
+          <p class="fig">3,000+ rpm</p>
+          <h3>Tennis</h3>
+          <p>How fast a heavy topspin forehand spins. Physics does the rest.</p>
+          <span class="more">explore &rarr;</span>
+        </a>
+        <a class="orb" href="orbit-f1.html">
+          <p class="fig">50 / 50</p>
+          <h3>Formula 1</h3>
+          <p>Half petrol, half electric, all under a budget cap.</p>
+          <span class="more">explore &rarr;</span>
+        </a>
+        <a class="orb" href="orbit-space.html">
+          <p class="fig">124 m</p>
+          <h3>Rockets</h3>
+          <p>The tallest rocket ever built, and it's meant to land and fly again.</p>
+          <span class="more">explore &rarr;</span>
+        </a>
+        <a class="orb" href="orbit-music.html">
+          <p class="fig">440 Hz</p>
+          <h3>Music</h3>
+          <p>Same note on a violin and a piano, two completely different voices.</p>
+          <span class="more">explore &rarr;</span>
+        </a>
+        <a class="orb" href="orbit-questions.html#blue">
+          <p class="fig">#0000FF?</p>
+          <h3>Big questions</h3>
+          <p>Is my blue the same as your blue? We'll never know.</p>
+          <span class="more">explore &rarr;</span>
+        </a>
+        <a class="orb" href="orbit-questions.html#fortytwo">
+          <p class="fig">42</p>
+          <h3>The ultimate answer</h3>
+          <p>The answer to life, the universe and everything. Nobody knows the question.</p>
+          <span class="more">explore &rarr;</span>
+        </a>
+        <a class="orb" href="orbit-chess.html">
+          <p class="fig">10<sup>120</sup></p>
+          <h3>Chess</h3>
+          <p>More possible games than atoms in the universe.</p>
+          <span class="more">explore &rarr;</span>
+        </a>
+        <a class="orb" href="orbit-math.html">
+          <p class="fig">e<sup>i&pi;</sup>+1=0</p>
+          <h3>Math &amp; physics</h3>
+          <p>Five constants, one line. The closest thing math has to poetry.</p>
+          <span class="more">explore &rarr;</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <p class="label">// open channel</p>
+      <h2>Say hello</h2>
+      <p>Whether it's a project idea, a chess challenge, a hot take on F1, or a big question you can't stop thinking about, my signal's always on.</p>
+      <div class="mail">
+        <a id="email" href="mailto:plimm98000@gmail.com">plimm98000@gmail.com</a>
+        <button id="copy" class="btn" type="button">copy</button>
+      </div>
+      <p>Feel free to reach out. I'll do my best to get back to you as soon as I can.</p>
+    </section>
+  </main>
+
+  <footer>
+    <span>built on earth, dreams in orbit</span>
+    <span>&copy; 2026 Karthik</span>
+  </footer>
+</div>
+<script src="site.js"></script>
+</body>
+</html>

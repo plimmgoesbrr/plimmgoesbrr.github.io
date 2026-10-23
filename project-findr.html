@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>findr</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="An internship bot that scrapes listings, ranks them with an LLM against my preferences, and sends the best to WhatsApp every 4 hours.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Sora:wght@300;400;500&family=Martian+Mono:wght@300;400&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="haze" aria-hidden="true"></canvas>
+<div class="wrap" class="page">
+  <nav class="top" aria-label="Main">
+    <a class="back" href="index.html#projects">&larr; back to projects</a>
+    <div class="links">
+      <a href="index.html" class="mark">plimm<span>.</span></a>
+      <button id="theme" type="button" aria-label="Switch to light mode">
+        <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6"/></svg>
+        <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>
+      </button>
+    </div>
+  </nav>
+<header class="page-head">
+    <p class="label">// project · automation</p>
+    <h1>findr</h1>
+    <p class="lede">A bot that hunts internships so I don't have to scroll. Every four hours it reads hundreds of new listings, asks an AI which ones fit me, and sends the best to my WhatsApp.</p>
+  </header>
+
+  <main>
+    <section>
+      <p class="label">// the 10-second version</p>
+      <div class="kid"><p>Like a friend who reads every job board for you, all day, and only texts you when they find something you'd love.</p></div>
+    </section>
+
+    <section class="prose">
+      <p class="label">// why it's cool</p>
+      <h2>Job boards are noisy</h2>
+      <p>Most listings are the wrong field, city or level, and checking several sites daily wastes hours. findr does the boring part in the cloud, for free, and stays silent when there's nothing worth sending.</p>
+      <div class="stats">
+        <div class="stat"><div class="n">6,000+</div><div class="t">listings processed</div></div>
+        <div class="stat"><div class="n">every 4 h</div><div class="t">fully automatic</div></div>
+        <div class="stat"><div class="n">&#8377;0</div><div class="t">to run, all on free tiers</div></div>
+      </div>
+    </section>
+
+    <section>
+      <p class="label">// how it works</p>
+      <h2>Every four hours</h2>
+      <ol class="pipe">
+        <li><div><b>Fetch</b><span>About 500 new listings from Jobicy, SimplifyJobs and Internshala.</span></div></li>
+        <li><div><b>Skip repeats</b><span>Anything already seen is dropped.</span></div></li>
+        <li><div><b>Quick filter</b><span>Cheap keyword checks remove obvious misses.</span></div></li>
+        <li><div><b>AI scoring</b><span>An LLM rates each remaining listing 0&ndash;10 against my preferences.</span></div></li>
+        <li><div><b>Send</b><span>Top 5 in India and top 5 abroad, by my favourite cities, straight to WhatsApp.</span></div></li>
+      </ol>
+    </section>
+
+    <section class="prose">
+      <p class="label">// under the hood</p>
+      <h2>Small pieces, one job each</h2>
+      <ul class="dots">
+        <li><b>Scraping:</b> Python with <span class="term">requests</span> and <span class="term">BeautifulSoup</span>, reshaping three sources into one format.</li>
+        <li><b>Memory:</b> a <span class="term">SQLite</span> database stores a short fingerprint (<span class="term">MD5 hash</span>) of every listing, so nothing is sent twice.</li>
+        <li><b>Judging:</b> an open-weight LLM via <span class="term">Groq</span>, fast and free at this scale.</li>
+        <li><b>Delivery and timing:</b> <span class="term">Twilio</span> sends the WhatsApp messages; <span class="term">GitHub Actions</span> runs everything on schedule, so no computer has to stay on.</li>
+      </ul>
+    </section>
+
+    <section class="prose">
+      <p class="label">// the tricky part</p>
+      <h2>Using AI sparingly, keeping secrets secret</h2>
+      <p>Sending 500 listings to an AI every few hours would be slow and hit rate limits. The keyword filter does most of the rejecting for free, so the AI only sees real contenders. API keys and my phone number live in encrypted repository secrets, never in the code, which keeps the project safe to share publicly.</p>
+      <ul class="tags"><li>python</li><li>sqlite</li><li>beautifulsoup</li><li>groq</li><li>twilio</li><li>github actions</li></ul>
+    </section>
+  </main>
+
+  <nav class="nextpage" aria-label="More projects">
+    <a href="project-flowkeep.html">&larr; FlowKeep</a>
+    <a href="project-health.html">next: System Health Monitor &rarr;</a>
+  </nav>
+
+  <footer>
+    <span>built on earth, dreams in orbit</span>
+    <span>&copy; 2026 Karthik</span>
+  </footer>
+</div>
+<script src="site.js"></script>
+</body>
+</html>

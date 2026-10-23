@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rockets & Space</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="How big the universe is, how ISRO and SpaceX reach it, and why Starship is the most fascinating machine flying today.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Sora:wght@300;400;500&family=Martian+Mono:wght@300;400&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="haze" aria-hidden="true"></canvas>
+<div class="wrap" class="page">
+  <nav class="top" aria-label="Main">
+    <a class="back" href="index.html#orbit">&larr; back to orbit</a>
+    <div class="links">
+      <a href="index.html" class="mark">plimm<span>.</span></a>
+      <button id="theme" type="button" aria-label="Switch to light mode">
+        <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6"/></svg>
+        <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>
+      </button>
+    </div>
+  </nav>
+<header class="page-head">
+    <p class="label">// orbit · rockets &amp; space</p>
+    <h1>Up there</h1>
+    <p class="lede">Everything you've ever known happened on one small rock. Everything else is up there. This page is about how mind-bendingly big that "everything else" is, and the two very different ways humans are reaching for it.</p>
+  </header>
+
+  <main>
+    <section class="prose">
+      <p class="label">// how big is big</p>
+      <h2>Scale, gently</h2>
+      <div class="stats">
+        <div class="stat"><div class="n">8 min 20 s</div><div class="t">for sunlight to reach us. The Sun you see is always 8 minutes old.</div></div>
+        <div class="stat"><div class="n">~1 light-day</div><div class="t">how far Voyager 1 has drifted after nearly 50 years. Our farthest object, and it's barely left home.</div></div>
+        <div class="stat"><div class="n">100&ndash;400 bn</div><div class="t">stars in our Milky Way alone</div></div>
+        <div class="stat"><div class="n">~93 bn ly</div><div class="t">across the observable universe, holding hundreds of billions of galaxies</div></div>
+      </div>
+      <p>A day on Venus is longer than its year. A teaspoon of neutron star would weigh about as much as a mountain. And when you look at the Andromeda galaxy, you're seeing light that left it 2.5 million years ago, before humans existed.</p>
+      <p>To see any of it up close, you first have to leave Earth, which means going sideways at about 28,000 km/h. Two organisations have very different ideas about how to do that.</p>
+    </section>
+
+
+    <section>
+      <p class="label">// two ways to space</p>
+      <h2>ISRO and SpaceX</h2>
+      <div class="split">
+        <div>
+          <h3>ISRO</h3>
+          <p><b>India's space agency, founded 1969.</b></p>
+          <p>Its superpower is doing a lot with a little: careful engineering, clever orbital paths, and missions that cost a fraction of what others spend.</p>
+        </div>
+        <div>
+          <h3>SpaceX</h3>
+          <p><b>A private company, founded 2002.</b></p>
+          <p>Its superpower is reuse at scale: rockets that land themselves so they can fly again, and building and testing fast enough to learn from every failure.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <p class="label">// isro</p>
+      <h2>Precision on a budget</h2>
+      <ol class="timeline">
+        <li><span class="yr">1975</span>Aryabhata, India's first satellite, goes up on a Soviet rocket.</li>
+        <li><span class="yr">2008</span>Chandrayaan-1 orbits the Moon and helps confirm water molecules on its surface.</li>
+        <li><span class="yr">2014</span>Mangalyaan reaches Mars orbit on the first try, a first for any nation, for around &#8377;450 crore. That's less than many Hollywood space films cost to make.</li>
+        <li><span class="yr">2017</span>A single PSLV rocket launches 104 satellites in one go, a world record at the time.</li>
+        <li><span class="yr">2023</span>Chandrayaan-3 lands near the Moon's south pole, the first mission ever to land in that region, close to the shadowed craters that may hold ice.</li>
+        <li><span class="yr">2024</span>Aditya-L1 parks 1.5 million km away at Lagrange point L1 to watch the Sun nonstop.</li>
+        <li><span class="yr">next</span>Gaganyaan, India's human spaceflight programme. The first uncrewed flight carries Vyommitra, a half-humanoid robot, with crewed flights targeted for 2027.</li>
+      </ol>
+    </section>
+
+    <section>
+      <p class="label">// spacex</p>
+      <h2>Land it, fly it again</h2>
+      <ol class="timeline">
+        <li><span class="yr">2008</span>Falcon 1 becomes the first privately developed liquid-fuel rocket to reach orbit, on the fourth attempt, after three failures nearly ended the company.</li>
+        <li><span class="yr">2015</span>A Falcon 9 booster lands upright back on Earth after launching to space. Rockets stop being disposable.</li>
+        <li><span class="yr">2020</span>Crew Dragon carries astronauts to the International Space Station.</li>
+        <li><span class="yr">2024</span>The launch tower catches a returning Super Heavy booster with giant mechanical "chopstick" arms.</li>
+        <li><span class="yr">2026</span>Starship reaches orbit for the first time on Flight 14 and deploys 26 Starlink satellites.</li>
+      </ol>
+    </section>
+
+    <section class="prose">
+      <p class="label">// starship</p>
+      <h2>The most fascinating machine flying</h2>
+      <div class="stats">
+        <div class="stat"><div class="n">~124 m</div><div class="t">tall, the biggest rocket ever built</div></div>
+        <div class="stat"><div class="n">39</div><div class="t">Raptor engines: 33 on the booster, 6 on the ship</div></div>
+        <div class="stat"><div class="n">100+ t</div><div class="t">to orbit, about the weight of 70 cars</div></div>
+      </div>
+      <p>Most rockets are thrown away after one flight, which is like scrapping a plane after every trip. Starship is built so that both halves, the Super Heavy booster and the Ship on top, come back and fly again. If that works, getting to space becomes far cheaper, and Moon bases and Mars trips start to look like engineering instead of science fiction.</p>
+      <ul class="dots">
+        <li><b>The tower catches the booster</b> out of the air with giant mechanical arms, so it doesn't need heavy landing legs.</li>
+        <li><b>It runs on methane and oxygen,</b> fuel that could one day be made on Mars for the trip home.</li>
+        <li><b>NASA picked it as a Moon lander</b> for its Artemis missions.</li>
+      </ul>
+      <p>Still to come: catching the Ship too, refuelling in orbit, and carrying people. Every test flight either works or teaches something new.</p>
+    </section>
+  </main>
+
+  <nav class="nextpage" aria-label="More">
+    <a href="index.html#orbit">&larr; all topics</a>
+    <a href="orbit-f1.html">next: Formula 1 &rarr;</a>
+  </nav>
+
+  <footer>
+    <span>built on earth, dreams in orbit</span>
+    <span>&copy; 2026 Karthik</span>
+  </footer>
+</div>
+<script src="site.js"></script>
+</body>
+</html>

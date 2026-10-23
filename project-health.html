@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>System Health Monitor</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="A live terminal dashboard for a computer's CPU, memory, disk and network, with alerts that only fire when a problem sticks around.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Sora:wght@300;400;500&family=Martian+Mono:wght@300;400&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="haze" aria-hidden="true"></canvas>
+<div class="wrap" class="page">
+  <nav class="top" aria-label="Main">
+    <a class="back" href="index.html#projects">&larr; back to projects</a>
+    <div class="links">
+      <a href="index.html" class="mark">plimm<span>.</span></a>
+      <button id="theme" type="button" aria-label="Switch to light mode">
+        <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6"/></svg>
+        <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>
+      </button>
+    </div>
+  </nav>
+<header class="page-head">
+    <p class="label">// project · group project</p>
+    <h1>System Health Monitor</h1>
+    <p class="lede">A live dashboard for your computer's vital signs, right in the terminal. It only raises the alarm when something stays wrong, not every time it blips.</p>
+  </header>
+
+  <main>
+    <section>
+      <p class="label">// the 10-second version</p>
+      <div class="kid"><p>A heart-rate monitor for your computer. It shows how hard the machine is working, turns red when something's in trouble, and keeps a diary of everything.</p></div>
+    </section>
+
+    <section>
+      <p class="label">// what it looks like</p>
+      <h2>One glance tells you everything</h2>
+      <pre class="term-block" aria-label="Example terminal output">CPU     <span class="ok">████████░░░░░░░░░░░░</span>  41%
+MEMORY  <span class="warn">███████████████░░░░░</span>  77%
+DISK    <span class="ok">██████████░░░░░░░░░░</span>  52%
+NET     ↑ 1.2 MB/s   ↓ 8.4 MB/s
+
+<span class="bad">FIRED    CPU at 92% (>= 85% for 3 ticks)</span>
+<span class="ok">RESOLVED CPU recovered to 47%</span></pre>
+      <div class="prose"><p class="note">Green is fine, yellow is stressed, red is trouble. A table below lists the processes using the most CPU.</p></div>
+    </section>
+
+    <section class="prose">
+      <p class="label">// why it's cool</p>
+      <h2>No crying wolf</h2>
+      <p>CPU usage spikes constantly. A monitor that alerts on every spike becomes noise, and people learn to ignore it. This one only speaks up when a problem lasts, so when it does alert, it's worth listening to.</p>
+    </section>
+
+    <section>
+      <p class="label">// how it works</p>
+      <h2>One loop, every two seconds</h2>
+      <ol class="pipe">
+        <li><div><b>Collect</b><span>Read CPU, memory, disk, network and process stats from the operating system.</span></div></li>
+        <li><div><b>Evaluate</b><span>Check each value against its limits and fire or clear alerts.</span></div></li>
+        <li><div><b>Display</b><span>Redraw the colour-coded dashboard.</span></div></li>
+        <li><div><b>Log</b><span>Save the readings and any alerts to a file, then wait and repeat.</span></div></li>
+      </ol>
+    </section>
+
+    <section class="prose">
+      <p class="label">// under the hood</p>
+      <h2>The interesting bits</h2>
+      <ul class="dots">
+        <li><span class="term">psutil</span> reads live hardware stats on Windows, macOS and Linux; <span class="term">rich</span> turns the terminal into live bars, colours and tables.</li>
+        <li><b>Sustained ticks:</b> an alert fires only if a value stays past its limit for several checks in a row, like CPU at 85%+ three times straight.</li>
+        <li><b>Cooldowns:</b> the same alert can't repeat for 60 seconds.</li>
+        <li><b>Log rotation:</b> the log file rolls over when it gets big, so the monitor can't fill the disk it's watching.</li>
+        <li>Every threshold lives in one <span class="term">config.yaml</span>, so tuning needs no code changes.</li>
+      </ul>
+    </section>
+
+    <section class="prose">
+      <p class="label">// the tricky part</p>
+      <h2>Knowing when to speak up</h2>
+      <p>Too sensitive and it nags; too relaxed and it misses real trouble. Warning and critical levels, sustained ticks and cooldowns together give alerts a short memory of what just happened, which is what makes them trustworthy.</p>
+      <p class="note">Built as a group project.</p>
+      <ul class="tags"><li>python</li><li>psutil</li><li>rich</li><li>yaml</li></ul>
+    </section>
+  </main>
+
+  <nav class="nextpage" aria-label="More projects">
+    <a href="project-findr.html">&larr; findr</a>
+    <a href="project-tastelab.html">next: Spotify Taste Lab &rarr;</a>
+  </nav>
+
+  <footer>
+    <span>built on earth, dreams in orbit</span>
+    <span>&copy; 2026 Karthik</span>
+  </footer>
+</div>
+<script src="site.js"></script>
+</body>
+</html>

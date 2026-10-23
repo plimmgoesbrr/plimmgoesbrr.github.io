@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FlowKeep</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="A browser extension that tracks Claude usage live and hands the conversation to another model before you hit the limit.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Sora:wght@300;400;500&family=Martian+Mono:wght@300;400&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="haze" aria-hidden="true"></canvas>
+<div class="wrap" class="page">
+  <nav class="top" aria-label="Main">
+    <a class="back" href="index.html#projects">&larr; back to projects</a>
+    <div class="links">
+      <a href="index.html" class="mark">plimm<span>.</span></a>
+      <button id="theme" type="button" aria-label="Switch to light mode">
+        <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6"/></svg>
+        <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>
+      </button>
+    </div>
+  </nav>
+<header class="page-head">
+    <p class="label">// project · browser extension</p>
+    <h1>FlowKeep</h1>
+    <p class="lede">Ever hit an AI's limit mid-thought? FlowKeep shows how much you've used, warns you before the wall, and carries your conversation over to another model.</p>
+  </header>
+
+  <main>
+    <section>
+      <p class="label">// the 10-second version</p>
+      <div class="kid"><p>A fuel gauge for your AI chats. It shows how much fuel is left, warns you before you run out, and packs your conversation into a suitcase so you can carry on with a different AI.</p></div>
+    </section>
+
+    <section class="prose">
+      <p class="label">// why it's cool</p>
+      <h2>Limits shouldn't break your flow</h2>
+      <p>AI usage is measured in <span class="term">tokens</span>, chunks of text roughly three-quarters of a word long. Run out mid-session and all the context you built up gets stuck. FlowKeep makes the limit visible and turns hitting it into a handoff instead of a dead end.</p>
+    </section>
+
+    <section>
+      <p class="label">// how it works</p>
+      <h2>Four features</h2>
+      <ol class="pipe">
+        <li><div><b>Live gauge</b><span>A draggable badge on claude.ai with a colour-coded usage bar and a reset countdown.</span></div></li>
+        <li><div><b>Pre-flight check</b><span>Warns you while typing if a message will likely blow your remaining budget.</span></div></li>
+        <li><div><b>Auto snapshot</b><span>At 80% usage, saves a compact summary: your goal, recent context, and how to pick up again.</span></div></li>
+        <li><div><b>One-click handoff</b><span>Copies the snapshot and opens Gemini, ChatGPT or Groq so you can paste and keep going.</span></div></li>
+      </ol>
+    </section>
+
+    <section class="prose">
+      <p class="label">// under the hood</p>
+      <h2>Counting without a counter</h2>
+      <p>The browser can't see exactly how the model splits text into tokens, so FlowKeep estimates it from character and word counts, adjusted for code, which uses more tokens. When Claude's own responses include real usage numbers, it uses those instead.</p>
+      <p>It's about 650 lines of plain JavaScript on <span class="term">Manifest V3</span>, the current extension standard. One codebase runs on Chrome, Edge, Brave and Firefox, and everything stays in your browser.</p>
+    </section>
+
+    <section class="prose">
+      <p class="label">// the tricky part</p>
+      <h2>Packing the suitcase</h2>
+      <p>Paste the whole conversation into a new model and you blow its limits too. Paste too little and it's lost. The snapshot keeps just the goal, the latest context and a clear "continue from here", small enough to paste anywhere and complete enough to keep going.</p>
+      <ul class="tags"><li>javascript</li><li>manifest v3</li><li>chrome</li><li>firefox</li></ul>
+    </section>
+  </main>
+
+  <nav class="nextpage" aria-label="More projects">
+    <a href="project-chainsight.html">&larr; ChainSight</a>
+    <a href="project-findr.html">next: findr &rarr;</a>
+  </nav>
+
+  <footer>
+    <span>built on earth, dreams in orbit</span>
+    <span>&copy; 2026 Karthik</span>
+  </footer>
+</div>
+<script src="site.js"></script>
+</body>
+</html>

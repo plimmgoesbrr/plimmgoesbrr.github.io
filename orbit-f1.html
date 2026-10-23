@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Two Races at Once</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Formula 1 seen two ways: the engineering of the 2026 cars and the business of running a team under a budget cap.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Sora:wght@300;400;500&family=Martian+Mono:wght@300;400&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="haze" aria-hidden="true"></canvas>
+<div class="wrap" class="page">
+  <nav class="top" aria-label="Main">
+    <a class="back" href="index.html#orbit">&larr; back to orbit</a>
+    <div class="links">
+      <a href="index.html" class="mark">plimm<span>.</span></a>
+      <button id="theme" type="button" aria-label="Switch to light mode">
+        <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6"/></svg>
+        <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>
+      </button>
+    </div>
+  </nav>
+<header class="page-head">
+    <p class="label">// orbit · formula 1</p>
+    <h1>Two races at once</h1>
+    <p class="lede">Every Grand Prix is really two races. One happens on track at 300+ km/h. The other happens in spreadsheets and wind tunnels, where teams fight to turn every dollar into speed. Flip between them.</p>
+  </header>
+
+  <main>
+    <section>
+      <div class="toggle" role="group" aria-label="Choose a view">
+        <button class="btn" type="button" data-show="eng" aria-pressed="true">engineer view</button>
+        <button class="btn" type="button" data-show="boss" aria-pressed="false">team boss view</button>
+      </div>
+
+      <div id="eng" class="prose">
+        <p class="label">// on the pit wall</p>
+        <h2>A spaceship with four tyres</h2>
+        <div class="stats">
+          <div class="stat"><div class="n">~50 / 50</div><div class="t">combustion vs electric power in the 2026 power units</div></div>
+          <div class="stat"><div class="n">5g+</div><div class="t">sideways through fast corners, and around 5g under braking</div></div>
+          <div class="stat"><div class="n">~2 s</div><div class="t">for a good pit stop: four new tyres faster than you can read this</div></div>
+        </div>
+        <h3>The 2026 power unit</h3>
+        <p>The 1.6-litre V6 turbo hybrid stays, but the petrol engine's share drops and the electric motor gets about three times stronger, for a roughly even split. The complicated MGU-H, which recovered energy from the turbo, is gone. Cars now run on fully sustainable fuel, and the battery can harvest twice as much energy per lap from braking.</p>
+        <h3>Wings that move</h3>
+        <p>The 2026 cars have <span class="term">active aerodynamics</span>. In corners, the front and rear wing flaps sit in a high-grip position that pushes the car into the road. On designated straights they flatten out into a low-drag mode for top speed. It replaces DRS, and every driver can use it every lap.</p>
+        <h3>Downforce, the invisible hand</h3>
+        <p>An F1 car is shaped like an upside-down aeroplane wing: instead of lift, it makes <span class="term">downforce</span>. At high speed it presses the car into the track so hard that, in theory, it could drive upside down on a ceiling. The 2026 cars are lighter, narrower and make less downforce than before, which should make them twitchier and closer to fight.</p>
+        <h3>Racing as energy management</h3>
+        <p>With so much power coming from the battery, a lap becomes a puzzle: where to harvest energy, where to spend it, and when to save it for an <span class="term">Overtake Mode</span> burst when you're within a second of the car ahead. The fastest driver isn't just brave on the brakes; they're also good at maths.</p>
+      </div>
+
+      <div id="boss" class="prose" hidden>
+        <p class="label">// in the boardroom</p>
+        <h2>The fastest car per dollar</h2>
+        <div class="stats">
+          <div class="stat"><div class="n">$215M</div><div class="t">2026 cost cap per team, up from $135M after an accounting reset</div></div>
+          <div class="stat"><div class="n">11 teams</div><div class="t">fighting over prize money paid by championship position</div></div>
+          <div class="stat"><div class="n">0.1 s</div><div class="t">a lap can be worth millions in prize money and sponsor value</div></div>
+        </div>
+        <h3>The budget cap</h3>
+        <p>Before 2021, the richest teams simply outspent everyone. Now there's a <span class="term">cost cap</span> on what teams can spend on making the car fast: design, R&amp;D, parts, upgrades. The jump to $215M in 2026 is mostly bookkeeping. Things that used to sit outside the cap, like factory equipment, now count inside it.</p>
+        <p>Some things are left out entirely: driver salaries, the three highest-paid staff, marketing, and travel. So a team boss's real job is deciding where each dollar buys the most lap time. Is it a new floor, a better simulator, or one more engineer?</p>
+        <h3>Where the money comes from</h3>
+        <ul class="dots">
+          <li><b>Prize money</b> from the sport's commercial revenue, paid out by where you finish in the Constructors' Championship. Every position is worth millions.</li>
+          <li><b>Sponsors</b> who pay to put their name on a car that hundreds of millions of people watch.</li>
+          <li><b>Team value.</b> F1 teams used to lose money. Under the cap, with spending controlled, they're now some of the most valuable sports franchises in the world.</li>
+        </ul>
+        <h3>Engineering meets economics</h3>
+        <p>With spending capped, F1 has become an optimisation problem with a budget constraint. The winners are the teams that spend smartest, not the ones that spend most. That's the part I find most interesting: it's research, engineering and strategy all fighting over the same finite pile of money.</p>
+      </div>
+    </section>
+
+    <section class="prose">
+      <p class="label">// forza ferrari</p>
+      <h2>Scuderia Ferrari</h2>
+      <p>The only team that has raced in every Formula 1 season since the championship began in 1950, and the most successful constructor in the sport's history, with 16 Constructors' titles.</p>
+      <p>Ferrari isn't just a team; it's a country holding its breath every Sunday. Red cars, the prancing horse, and a fanbase that turns Monza into a sea of red. Following Ferrari means heartbreak, strategy calls that make you scream at the screen, and the belief, every single season, that this is finally the year.</p>
+    </section>
+  </main>
+
+  <nav class="nextpage" aria-label="More">
+    <a href="orbit-space.html">&larr; Rockets &amp; space</a>
+    <a href="orbit-sports.html">next: Tennis &amp; sports &rarr;</a>
+  </nav>
+
+  <footer>
+    <span>built on earth, dreams in orbit</span>
+    <span>&copy; 2026 Karthik</span>
+  </footer>
+</div>
+<script src="site.js"></script>
+</body>
+</html>

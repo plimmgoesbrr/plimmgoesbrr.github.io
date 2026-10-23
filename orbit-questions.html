@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Big Questions & 42</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Is my blue your blue, why 42, Tesla's 3-6-9, and other questions with no right answer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Sora:wght@300;400;500&family=Martian+Mono:wght@300;400&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="haze" aria-hidden="true"></canvas>
+<div class="wrap" class="page">
+  <nav class="top" aria-label="Main">
+    <a class="back" href="index.html#orbit">&larr; back to orbit</a>
+    <div class="links">
+      <a href="index.html" class="mark">plimm<span>.</span></a>
+      <button id="theme" type="button" aria-label="Switch to light mode">
+        <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6"/></svg>
+        <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>
+      </button>
+    </div>
+  </nav>
+<header class="page-head">
+    <p class="label">// orbit · big questions</p>
+    <h1>Questions with no right answer</h1>
+    <p class="lede">My favourite kind of question is the one nobody can settle. No answer key, just a few good arguments politely disagreeing with each other. Pull up a chair.</p>
+  </header>
+
+  <main>
+    <section class="prose" id="blue">
+      <p class="label">// question one</p>
+      <h2>Is my blue your blue?</h2>
+      <p>We both look at the sky and say "blue". We'd both pick the same swatch, and a computer would call it <span class="term">#0000FF</span>. But is the <em>experience</em> in your head the same as the one in mine? Maybe what you see as blue is what I'd call orange, and we've just both learned to name it "blue".</p>
+      <p>Philosophers call the raw feeling of an experience a <span class="term">quale</span> (plural: qualia), and this is the "inverted spectrum" problem. Brain scans can show which neurons fire, but not what it's <em>like</em> to be the brain they're firing in.</p>
+      <p class="verdict">My take: it's probably close, since we share the same kind of eyes and brains. But "probably" is all anyone can ever say. You'll never see through my eyes, and that's slightly terrifying.</p>
+    </section>
+
+    <section class="prose" id="fortytwo">
+      <p class="label">// question two</p>
+      <h2>Why 42?</h2>
+      <p>In <em>The Hitchhiker's Guide to the Galaxy</em>, a supercomputer called Deep Thought spends 7.5 million years calculating the Answer to the Ultimate Question of Life, the Universe, and Everything. The answer: <b>42</b>. The problem: nobody actually knew what the question was.</p>
+      <p>Douglas Adams said he picked it because it was an ordinary, slightly funny number. The internet, naturally, refused to accept that:</p>
+      <ul class="dots">
+        <li>42 is 101010 in binary: a perfectly alternating pattern.</li>
+        <li>Drill a straight tunnel through the Earth and jump in. Ignoring air and friction, gravity would carry you to the other side in about 42 minutes. Wherever you dig the tunnel.</li>
+        <li>It's 6 &times; 7, which is a strangely satisfying pair of neighbours.</li>
+        <li>And 4 + 2 = 6. Hold that thought.</li>
+      </ul>
+    </section>
+
+    <section class="prose">
+      <p class="label">// question three</p>
+      <h2>Tesla's 3, 6, 9</h2>
+      <p>Nikola Tesla supposedly said that if you knew the magnificence of 3, 6 and 9, you'd have a key to the universe. (There's no reliable source he ever said it, which somehow makes it more fun.)</p>
+      <p>Here's the trick that makes it feel mystical. Keep doubling a number and adding up its digits until you get one digit:</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>doubling</th><th>digit sum</th></tr></thead>
+          <tbody>
+            <tr><td class="num">1, 2, 4, 8, 16, 32, 64, 128...</td><td class="num">1, 2, 4, 8, 7, 5, 1, 2...</td></tr>
+            <tr><td class="num">3, 6, 12, 24, 48, 96...</td><td class="num">3, 6, 3, 6, 3, 6...</td></tr>
+            <tr><td class="num">9, 18, 36, 72, 144...</td><td class="num">9, 9, 9, 9, 9...</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>The doubling cycle never touches 3, 6 or 9. They live in their own little loop, and 9 never changes at all. Spooky!</p>
+      <p class="verdict">The boring truth: digit sums are just remainders when you divide by 9 (plain old modular arithmetic). It works because we count in base 10, and 10 is one more than 9. Count in a different base and the "magic numbers" change. Still beautiful, though. And 42's digits add up to 6, so Deep Thought and Tesla were secretly on the same team.</p>
+    </section>
+
+  </main>
+
+  <nav class="nextpage" aria-label="More">
+    <a href="orbit-sports.html">&larr; Tennis &amp; sports</a>
+    <a href="orbit-music.html">next: Music &rarr;</a>
+  </nav>
+
+  <footer>
+    <span>built on earth, dreams in orbit</span>
+    <span>&copy; 2026 Karthik</span>
+  </footer>
+</div>
+<script src="site.js"></script>
+</body>
+</html>
